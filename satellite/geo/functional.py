@@ -5,7 +5,7 @@ from satellite.geo.constants import ADM_DB
 
 class SessionContextManager:
     def __init__(self, db: str):
-        self.conn = duckdb.connect(db)  # TODO: read_only = True
+        self.conn = duckdb.connect(db, read_only=True)
 
     def __enter__(self):
         return self.conn.begin()
